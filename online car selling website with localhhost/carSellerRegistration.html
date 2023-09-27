@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Car Seller Registration</title>
+	<script src="main.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		main{
+			margin-top: 5px;
+			border-radius: 20px;
+      background: #bbb4b4b5;
+		}
+		.headerCar{
+			margin-bottom: 20px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header class="container">
+
+		<nav>
+			<div class="logo">
+                    <a href="index.html"><img src="kisspng-car-dealership-alsa-enterprises-motors-used-car-ve-sale-logo-transparent-5b4b866674ca30.5811650215316762624784.png"
+                         alt="" srcset="" class="logo"></a>
+               </div>
+			<ul>
+				<li><a href="./index.html">Home</a></li>
+                    <li><a href="./carSellerRegistration.html">Cars Seller</a></li>
+                    <li><a href="./seller.html">Seller</a></li>
+                    <li><a href="./search.html">Search</a></li>
+                    <li><a href="./about_us.html">About Us</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<div class="headerCar">
+			<h1>Car Seller Registration</h1>
+
+		</div>
+		<form id="registration-form" method="post">
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" required placeholder="Enter your Name here">
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="Address" required placeholder="Enter your city name">
+			<label for="phone">Phone Number:</label>
+			<input type="tel" id="phone" name="phonenumber" required placeholder="Enter your phonenumber">
+			<label for="email">Email Address:</label>
+			<input type="email" id="email" name="email" required placeholder="Enter your emailaddress">
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required placeholder="Enter your username">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" required placeholder="Enter your password">
+			<button type="submit">Register</button>
+		</form>
+	</main>
+
+
+
+</body>
+
+</html>

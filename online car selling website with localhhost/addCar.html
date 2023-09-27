@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Car</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+<style>
+	table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</style>
+	
+</head>
+
+<body>
+
+
+	<main>
+		<center><h1>Add Car</h1></center>
+		<form id="add-car-form" method="post">
+			<label for="make">Make *</label>
+			<input type="text" id="make" name="make" required placeholder="Make">
+
+			<label for="model">Model *</label>
+			<input type="text" id="model" name="model" required placeholder="Model">
+
+			<label for="year">Year *</label>
+			<input type="text" id="year" name="year" required placeholder="enter year">
+
+			<label for="mileage">Mileage *</label>
+			<input type="number" id="mileage" name="mileage" required placeholder="enter milages per hour">
+
+			<label for="location">Location *</label>
+			<input type="text" id="location" name="location" required placeholder="enter location">
+
+			<label for="price">Price *</label>
+			<input type="text" id="price" name="price" required placeholder="enter price">
+
+			<button id="button" type="submit">Submit</button>
+		</form>
+	</main>
+	</body>
+
+</html>

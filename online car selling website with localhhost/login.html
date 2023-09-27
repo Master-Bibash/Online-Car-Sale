@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+
+
+	<style>
+		.mainContainer {
+			margin-top: 20px;
+
+		}
+
+		main {
+			/* border: solid red 2px; */
+			background: #bbb4b4b5;
+			border-radius: 15px;
+		}
+
+		.button,
+		button:hover {
+			width: 100%;
+			padding: 10px;
+			background-color: lightblue;
+			color: white;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+			font-size: 20px;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<main>
+		<h1>Login</h1>
+		<div class="mainContainer">
+
+			<form id="login-form" method="post">
+				<label for="username">Username *</label>
+				<input type="text" id="username" name="username" required>
+
+				<label for="password">Password *</label>
+				<input type="password" id="password" name="password" required>
+				<!-- <input type="button" value="Login" onclick="login()"> -->
+				<button type="button" onclick="login()">Register</button>
+
+
+			</form>
+
+			<p id="no-account">Don't have an account ? <a href="carSellerRegistration.html">Register here</a></p>
+
+		</div>
+	</main>
+</body>
+
+</html>

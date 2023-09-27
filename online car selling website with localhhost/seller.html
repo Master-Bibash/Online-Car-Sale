@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        if (users.length == 0) {
+            window.location.href = "login.html";
+        }
+    </script>
+    <style>
+        .containerSeller {
+            margin-top: 60px;
+        }
+
+        .navSeller {
+            background-color: black;
+        }
+
+        .containerSeller {
+            /* border: 2px solid red; */
+            background: rgb(224, 217, 217);
+
+        }
+
+        .tableContainer {
+            align-items: center;
+        }
+
+        table,
+        th,
+        td {
+            border: solid 2px #090224;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table th {
+            font-size: 25px;
+            text-transform: uppercase;
+            text-align: center;
+            background: #b3adad;
+
+        }
+
+        table td {
+            font-size: 24px;
+            padding: 1px;
+        }
+        .listItem table{
+            /* border: 2px solid red; */
+            border: solid 2px #090224;
+            border-collapse: collapse;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navSeller">
+        <ul>
+            <li><a href="./index.html">Seller Home</a></li>
+            <li id="add-car-link"><a href="addCar.html">Add Car</a></li>
+        </ul>
+    </nav>
+
+    <div class="containerSeller">
+        <h1>Seller Page</h1>
+        <p>Welcome to your seller page. Here you can manage your car advertisements.</p>
+
+        <div class="listItem">
+            <div id="tableContainer">
+                <table id="sellerTable"></table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function saveItems(details) {
+            localStorage.setItem("details", JSON.stringify(details));
+        }
+        function displayItems() {
+            const details = JSON.parse(localStorage.getItem("details")) || [];
+            const table = document.createElement("table");
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Make</th>
+                        <th>location</th>
+                        <th>mileage</th>
+                        <th>model</th>
+                        <th>price</th>
+                        <th>year</th>
+                    </tr>
+                </thead>
+                <tbody id="itemList">
+                    ${details.map((detail, index) => `
+                        <tr>
+                            <td>${detail.make}</td>
+                            <td>${detail.location}</td>
+                            <td>${detail.mileage}</td>
+                            <td>${detail.model}</td>
+                            <td>${detail.price}</td>
+                            <td>${detail.year}</td>
+                            
+                        </tr>
+                    `).join("")}
+                </tbody>
+            `;
+            document.getElementById("tableContainer").innerHTML = "";
+            document.getElementById("tableContainer").appendChild(table);
+        }
+        // Initial display
+        displayItems();
+    </script>
+ <footer>
+    <p>&copy; 2023 ONLINE CAR SALE</p>
+</footer>
+</body>
+
+</html>

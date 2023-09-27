@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Search Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Sale Homepage</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    main {
+      /* border: solid red 2px; */
+      border-radius: 20px;
+      background: #bbb4b4b5;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 1px solid #000;
+      width: 100%;
+      margin: 20px 0;
+      /* Set margin */
+    }
+
+    table tr td {
+      text-align: center;
+
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+      /* Set padding */
+    }
+
+    th {
+      background-color: #555;
+      /* Set background color for header */
+      color: #fff;
+      /* Set font color for header */
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+      /* Set background color for even rows */
+    }
+
+    tr:hover {
+      background-color: #ddd;
+      /* Set background color for row hover */
+    }
+
+    iframe {
+      width: 100%;
+      height: 60vh;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="container">
+
+    <nav>
+      <div class="logo">
+        <a href="index.html"><img src="kisspng-car-dealership-alsa-enterprises-motors-used-car-ve-sale-logo-transparent-5b4b866674ca30.5811650215316762624784.png"
+             alt="" srcset="" class="logo"></a>
+   </div>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./carSellerRegistration.html">Cars Seller</a></li>
+        <li><a href="login.html">Seller</a></li>
+        <li><a href="./search.html">Search</a></li>
+        <li><a href="./about_us.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+  <center>
+    <h1>Search Page</h1>
+  </center>
+
+  <main>
+    <div class="container_form">
+      <form id="search">
+        <label for="model">Model:</label>
+        <input type="text" id="model"><br>
+        <label for="location">Location:</label>
+        <input type="text" id="location"><br>
+        <button type="submit">Search</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Mileage</th>
+            <th>Location</th>
+            <th>Price</th>
+          </tr>
+          </tr>
+        </thead>
+        <tbody id="searchBody"></tbody>
+      </table>
+    </div>
+    <script>
+      const form = document.getElementById("search");
+      const searchResult = document.getElementById("searchBody");
+    
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const searchModel = document.getElementById("model").value.trim().toLowerCase();
+        const searchLocation = document.getElementById("location").value.trim().toLowerCase();
+    
+        const details = JSON.parse(localStorage.getItem("details")) || [];
+    
+        const result = details.filter(detail =>
+          detail.model.toLowerCase().includes(searchModel) && detail.location.toLowerCase().includes(searchLocation)
+        );
+    
+        // Clear previous result/data
+        searchResult.innerHTML = "";
+    
+        //now we print the data
+        result.forEach(detail => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${detail.make}</td>
+            <td>${detail.model}</td>
+            <td>${detail.year}</td>
+            <td>${detail.mileage}</td>
+            <td>${detail.location}</td>
+            <td>${detail.price}</td>
+          `;
+          searchResult.appendChild(row);
+        });
+      });
+    </script>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 ONLINE CAR SALE</p>
+</footer>
+</body>
+
+</html>
